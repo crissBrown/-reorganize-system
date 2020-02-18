@@ -1,6 +1,6 @@
 <template>
     <div>
-      
+        这里是文件管理系统
     </div>
 </template>
 <script>
