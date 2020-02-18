@@ -1,6 +1,6 @@
 <template>
-    <div>
-        这里是文件管理系统
+    <div class="fileHome">
+        这是参考文件系统
     </div>
 </template>
 <script>
@@ -10,7 +10,6 @@
     export default {
         data() {
             return {
-                pageName: "files111",
 
             }
         },
@@ -27,5 +26,7 @@
 </script>
 
 <style scoped>
+.fileHome{
 
+}
 </style>

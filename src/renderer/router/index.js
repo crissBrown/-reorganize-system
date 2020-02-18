@@ -1,19 +1,14 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import fileHomePage from '@/filesystem/file_homePage'
+
+
+import routes from './routes'
+import history from './history'
 
 Vue.use(Router)
-
-export default new Router({
-  routes: [
-    {
-      path: '/',
-      name: 'fileHomePage',
-      component: fileHomePage
-    },
-    {
-      path: '*',
-      redirect: '/'
-    }
-  ]
+const ROUTER = new Router({
+  routes
 })
+history.install(ROUTER);
+
+export default ROUTER

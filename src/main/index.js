@@ -13,7 +13,7 @@ const winURL = process.env.NODE_ENV === 'development'
   ? `http://localhost:9080`
   : `file://${__dirname}/index.html`
 
-function createWindow () {
+function createWindow() {
   /**
    * Initial window options
    */
@@ -25,9 +25,14 @@ function createWindow () {
 
   mainWindow.loadURL(winURL)
 
+
   mainWindow.on('closed', () => {
     mainWindow = null
   })
+
+  //执行设置菜单操作
+  require('./menu.js');
+
 }
 
 app.on('ready', createWindow)
