@@ -5,6 +5,7 @@ import 'element-ui/lib/theme-chalk/index.css';
 import App from './App'
 import router from './router'
 import store from './store'
+import "./assets/fontAwesome/css/font-awesome.min.css"
 
 if (!process.env.IS_WEB) Vue.use(require('vue-electron'))
 Vue.use(ElementUI)
