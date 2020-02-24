@@ -17,7 +17,21 @@ const TEMPLATE = [{
         role: "toggledevtools"
 
     }
-   
+
+    ]
+}, {
+    label: '数据',
+    submenu: [{
+        label: '数据导入',
+        click(menuItem, browserWindow) {
+            console.log(browserWindow)
+            browserWindow.webContents.send('showDataImport','turnHome')
+            
+
+        }
+
+    }
+
     ]
 }
 ]

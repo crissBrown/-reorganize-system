@@ -12,6 +12,7 @@
 
             </div>
         </div>
+        <data-import></data-import>
     </div>
 </template>
 <script>
@@ -20,11 +21,12 @@
     } from 'vuex'
     import ObjManagement from '@/views/obj_management/management'
     import FileHome from '@/views/filesystem/file_homepage'
-
+import DataImport from '@/views/data_import'
     export default {
         components: {
             FileHome,
-            ObjManagement
+            ObjManagement,
+            DataImport
         },
         data() {
             return {
