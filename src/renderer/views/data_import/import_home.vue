@@ -1,12 +1,12 @@
 <template>
     <div class="importHome">
-        <el-dialog class="elDialog" title="导入向导" :visible.sync="dialogVisible" width="50%">
+        <el-dialog class="elDialog" title="导入向导" :visible.sync="dialogVisible" width="800px">
             <el-container style="height:400px">
-                <component :is="$store.state.dataImport.currentStep.value"></component>
+                <component ref="oneStep" :is="currentStep.value"></component>
             </el-container>
             <span slot="footer">
-                <el-button v-if="$store.state.dataImport.currentStep.index>0" @click="setStepToPrevious">上一步</el-button>
-                <el-button v-if="!$store.state.dataImport.currentStep.isTheLastStep" @click="setStepToNext">下一步</el-button>
+                <el-button v-if="currentStep.index>0" @click="setStepToPrevious">上一步</el-button>
+                <el-button v-if="!currentStep.isTheLastStep" @click="setStepToNext">下一步</el-button>
                 <el-button @click="dialogVisible = false">取 消</el-button>
             </span>
         </el-dialog>
@@ -14,6 +14,9 @@
 </template>
 
 <script>
+    import {
+        mapState
+    } from 'vuex'
     import ImportFormat from './import_format'
     import ImportSelectSource from './import_select_source'
     export default {
@@ -26,12 +29,15 @@
                 dialogVisible: false
             };
         },
-       
+        computed: {
+            ...mapState({
+                currentStep: state => state.dataImport.currentStep
+            })
+        },
         mounted() {
-            debugger
             //注册主进程的数据导入向导模块
             this.initMainProcessImport()
-         
+
         },
         methods: {
             initMainProcessImport() {
@@ -47,8 +53,11 @@
             },
 
             setStepToNext() {
-                //判断当前是不是最后一位
+                //存储当前步骤的选项数据
+                this.$refs.oneStep.saveWizardOption();
+                //跳转下一页
                 this.$store.commit('SET_STEP_NEXT')
+                
             },
             setStepToPrevious() {
                 this.$store.commit('SET_STEP_PREVIOUS')
