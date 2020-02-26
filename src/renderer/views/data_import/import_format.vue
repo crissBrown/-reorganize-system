@@ -18,7 +18,7 @@
                 importFormatList: [{
                         label: "文本文件（*.txt）",
                         id: "1",
-                        disabled: false
+                        disabled: true
                     },
                     {
                         label: "Excel文件（*.xls;*.xlsx）",
@@ -38,6 +38,7 @@
             }
         },
         mounted() {
+            //如果vuex中的wizardOption存放了数据，则进行加载
              this.choosedImportFormat = this.$store.state.dataImport.wizardOption[this.wizardOptionKey] || "2"
         },
         methods: {
@@ -46,6 +47,7 @@
                     key: this.wizardOptionKey,
                     value: this.choosedImportFormat
                 })
+                return true
             }
         },
 

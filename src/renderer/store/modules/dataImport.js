@@ -1,7 +1,9 @@
 const state = {
   stepList: [
     "ImportFormat",
-    "ImportSelectSource"
+    "ImportSelectSource",
+    "ImportOtherConfig",
+    "ImportAttrMapping"
   ],
   currentStep: {},
   wizardOption: {}
@@ -53,7 +55,6 @@ const mutations = {
    * @param {*} choosedFormat 当前选择的导入来源格式
    */
   SET_WIZARD_OPTION(state, { key, value = null }) {
-    debugger
     if (key) {
       state.wizardOption[key] = value
     }

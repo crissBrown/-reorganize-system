@@ -1,8 +1,8 @@
 <template>
     <el-container>
-        <el-header style="font-size:x-large;">你必须选择一个数据作为数据源</el-header>
+        <el-header style="font-size:x-large;">该向导已对属性映射进行一些猜测，现在你可进行调整</el-header>
         <el-main>
-            <component ref="currentStep" :is="currentSource"></component>
+            <component ref="currentMapping" :is="currentSource"></component>
         </el-main>
     </el-container>
 </template>
@@ -11,6 +11,7 @@
         mapState
     } from 'vuex'
     import FromExcel from './from_excel'
+
     export default {
         components: {
             FromExcel
@@ -22,7 +23,7 @@
         },
         computed: {
             ...mapState({
-                currentSource: function(state){
+                currentSource: function (state) {
                     switch (state.dataImport.wizardOption.format) {
                         case "1": //选择了文本录入模式
                         {
@@ -40,10 +41,7 @@
             }),
         },
         methods: {
-            saveWizardOption() {
-                let canTurnNext = this.$refs.currentStep.saveWizardOption();           
-               return canTurnNext       
-            }
+
         },
 
     }

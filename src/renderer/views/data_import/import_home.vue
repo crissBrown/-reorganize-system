@@ -19,10 +19,14 @@
     } from 'vuex'
     import ImportFormat from './import_format'
     import ImportSelectSource from './import_select_source'
+    import ImportOtherConfig from './import_other_config'
+    import ImportAttrMapping from './import_attr_mapping'
     export default {
         components: {
             ImportFormat,
-            ImportSelectSource
+            ImportSelectSource,
+            ImportOtherConfig,
+            ImportAttrMapping
         },
         data() {
             return {
@@ -53,11 +57,14 @@
             },
 
             setStepToNext() {
-                //存储当前步骤的选项数据
-                this.$refs.oneStep.saveWizardOption();
+                //存储当前步骤的选项数据   返回能否跳转下一步的bool
+               
+                let canTurnNext = this.$refs.oneStep.saveWizardOption();
                 //跳转下一页
-                this.$store.commit('SET_STEP_NEXT')
-                
+                if (canTurnNext) {
+                    this.$store.commit('SET_STEP_NEXT')
+                }
+
             },
             setStepToPrevious() {
                 this.$store.commit('SET_STEP_PREVIOUS')
