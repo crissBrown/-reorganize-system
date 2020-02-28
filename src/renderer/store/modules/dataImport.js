@@ -3,7 +3,9 @@ const state = {
     "ImportFormat",
     "ImportSelectSource",
     "ImportOtherConfig",
-    "ImportAttrMapping"
+    "ImportAttrMapping",
+    "ImportMode",
+    "ImportReady"
   ],
   currentStep: {},
   wizardOption: {}

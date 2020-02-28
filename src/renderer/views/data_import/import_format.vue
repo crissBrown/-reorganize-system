@@ -14,7 +14,7 @@
         data() {
             return {
                 wizardOptionKey: "format",
-                choosedImportFormat: "2",
+                choosedImportFormat: "1",
                 importFormatList: [{
                         label: "文本文件（*.txt）",
                         id: "1",

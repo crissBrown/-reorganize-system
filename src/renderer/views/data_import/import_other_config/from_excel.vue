@@ -32,7 +32,6 @@
             }
         },
         mounted() {
-            console.log(this.$store.state.dataImport.wizardOption[this.wizardOptionKey])
             //如果vuex中的wizardOption存放了数据，则进行加载
             if (this.$store.state.dataImport.wizardOption[this.wizardOptionKey]) {
                 this.sheetAttr = this.$store.state.dataImport.wizardOption[this.wizardOptionKey]
