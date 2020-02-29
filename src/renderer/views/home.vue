@@ -67,7 +67,7 @@
     }
 
     .home .mainContainer .objManagementContainer {
-        flex: 3;
+        flex: 4;
         /* background-color: #e3b35a; */
     }
 

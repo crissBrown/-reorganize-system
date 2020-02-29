@@ -3,9 +3,6 @@
 		<div class="sidebarContainer">
 			<SideBar></SideBar>
 		</div>
-		<div class="geoviewContainer">
-			<GeoView></GeoView>
-		</div>
 		<div class="editviewContainer">
 			<EditView></EditView>
 		</div>
@@ -13,13 +10,11 @@
 </template>
 <script>
 	import SideBar from "./managementcom/sidebar.vue"
-	import GeoView from "./managementcom/geoview.vue"
 	import EditView from "./managementcom/editview.vue"
 
 	export default {
 		components: {
 			SideBar,
-			GeoView,
 			EditView
 		},
 		data() {
@@ -46,16 +41,12 @@
 	}
 
 	.objManagement .sidebarContainer {
-		flex: 1.5;
+		flex: 1;
 
-	}
-
-	.objManagement .geoviewContainer {
-		flex: 2.5;
-		background-color: green;
 	}
 
 	.objManagement .editviewContainer {
-		flex: 2.5;
+		flex: 3;
+		border: 1px solid #67C23A;
 	}
 </style>
