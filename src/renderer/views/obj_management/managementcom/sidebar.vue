@@ -185,7 +185,7 @@
 
 	.sidebar ul li {
 		user-select: none;
-		cursor: ;
+		cursor: pointer;
 	}
 
 	.sidebar ul span {

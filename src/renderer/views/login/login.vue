@@ -11,12 +11,12 @@
 				<el-card>
 					<el-form ref="loginForm" label-position="top" size="default">
 						<el-form-item prop="username">
-							<el-input type="text" v-model="name" placeholder="用户名">
+							<el-input type="text" v-model="formLogin.username" placeholder="用户名">
 								<i slot="prepend" class="fa fa-user-circle-o"></i>
 							</el-input>
 						</el-form-item>
 						<el-form-item prop="password">
-							<el-input type="password" v-model="pass" placeholder="密码">
+							<el-input type="password" v-model="formLogin.password" placeholder="密码">
 								<i slot="prepend" class="fa fa-keyboard-o"></i>
 							</el-input>
 						</el-form-item>
@@ -31,9 +31,23 @@
 	export default {
 		data() {
 			return {
-				name: '吴中波',
-				pass: '123456'
+				 // 表单
+      			formLogin: {
+        			username: 'admin',
+        			password: 'admin',
+				 },
+				rules: {
+        			username: [
+          				{ required: true, message: '请输入用户名', trigger: 'blur' }
+        			],
+        			password: [
+          				{ required: true, message: '请输入密码', trigger: 'blur' }
+        			],
+        
+      			}
+
 			}
+			
 		},
 		mounted() {
 			/////在本页面中添加登录模块的页面逻辑
@@ -42,9 +56,22 @@
 		},
 		methods: {
 			clickLogin() {
-				this.$router.push({
+				if (!this.formLogin.username) {
+          			this.$message.error('请输入用户名');
+          			return;
+       				}
+        		if (!this.formLogin.password) {
+          			this.$message.error('请输入密码');
+         			return;
+        			}
+				if(this.formLogin.username=="admin" && this.formLogin.password=="admin"){
+					this.$router.push({
 					name: 'home'
 				})
+				}else{
+					this.$message.error('用户名或密码错误');
+         			return;
+				}
 			}
 		},
 	}
